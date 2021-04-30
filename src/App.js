@@ -1,12 +1,12 @@
 
 import './App.css';
-import Game from './Components/Game/Game';
-import './Components/Game/game.css'
+import RenderTable from './Components/RenderTable/RenderTable';
+import './Components/RenderTable/Render.css'
 
 function App() {
   return (
     <div>
-      <Game/>
+      <RenderTable/>
     </div>
   )
 }

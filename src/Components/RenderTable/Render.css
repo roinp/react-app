@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+}
+
+td {
+    border: 2px solid black;
+    padding: 5px 30px;
+}
+
+tr{
+   border: 2px solid green;
+}
