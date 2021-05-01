@@ -1,9 +1,9 @@
-import React, {useState,useRef} from  'react'
+import React, {useState, useRef} from  'react'
 import './Render.css'
 
 function RenderTable(){
    
-    let teamsArray =[
+    const teamsArray = useRef([
         {
             name:"Ac Milan",
             game:0,
@@ -24,21 +24,19 @@ function RenderTable(){
             game:0,
             score:0,
         }
+    ]); 
 
+    const optionsArray = useRef(teamsArray.current.map((team, index) => <option key={index}>{team.name}</option>));
 
-    ] 
+    const [teams, setTeams] = useState(teamsArray.current);
 
-    const [teams,setTeams] = useState(teamsArray);
-
-    let newTeamsArray=[];
-    let optionsArray = [];
-
-    teams.forEach((element,index) => {
-        newTeamsArray.push(<tr><td>{teams[index].name}</td>{<td>{teams[index].game}</td>}{<td>{teams[index].score}</td>}</tr>)
-        optionsArray.push(<option>{teams[index].name}</option>)
-    } )  
-
-
+    let newTeamsArray = teams.map((team, index) => (
+        <tr key={index}>
+            <td>{team.name}</td>
+            <td>{team.game}</td>
+            <td>{team.score}</td>
+        </tr>)
+    );
     
     return (
         <div className="table">
@@ -47,10 +45,10 @@ function RenderTable(){
                     {newTeamsArray}
                 </tbody>
             </table>
-            <select>{optionsArray}</select>
+            <select>{optionsArray.current}</select>
             <input type='number'></input>
             <input type="number"></input>
-            <select>{optionsArray}</select>
+            <select>{optionsArray.current}</select>
         </div>
     )
 }
